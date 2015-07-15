@@ -1,0 +1,33 @@
+
+		// ** save API userdata
+		if($validate && $action == "api"){
+
+			$token 		= generate_key();
+			$visitor_ip = $_SERVER[REMOTE_ADDR];
+			$now		= date('Y-m-d H:i:s');
+
+			$sql = "INSERT INTO `api_users` (
+					`token`, `name`, `website`, `description`, `active`, `last_ip`, `created`)
+					VALUES ( '".$token."' , '".$name."' , '".$url."' , '".$description."' , '1' , '".$visitor_ip."' , '".$now."')";
+			$result = query($sql);
+				
+		}
+	}else{
+			$message = "";
+	}
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+ 
+<!-- Website Title --> 
+<title>Request API token</title>
+
+<!-- Meta data for SEO -->
+<meta name="description" content="An easy to use Restaurant Reservation System"/>
+<meta name="keywords" content="Restaurant Reservation System, Restaurant, Hotel, Reservation"/>
+<meta name="author" content="Bernd Orttenburger"/>
+<meta name="robots" content="noindex,nofollow" />
